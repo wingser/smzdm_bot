@@ -4,6 +4,8 @@
 @author : stark
 """
 import requests,os
+import random 
+import time 
 from sys import argv
 
 import config
@@ -50,12 +52,14 @@ class SMZDM_Bot(object):
 
 
 if __name__ == '__main__':
+
+    time.sleep(random.randint(1, 10)*60) 
     sb = SMZDM_Bot()
     sb.load_cookie_str(config.TEST_COOKIE)
     #cookies = os.environ["COOKIES"]
     #sb.load_cookie_str(cookies)
     res = sb.checkin()
-    print(res)
+    #print(res)
     #SERVERCHAN_SECRETKEY = os.environ["SERVERCHAN_SECRETKEY"]
     SERVERCHAN_SECRETKEY = config.SERVERCHAN_SECRETKEY
     print('sc_key: ', SERVERCHAN_SECRETKEY)
